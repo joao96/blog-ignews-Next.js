@@ -1,10 +1,19 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 import Head from "next/head";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
 
 import styles from "./home.module.scss";
+
+// client-side
+// server-side
+// static site generation
+
+// Post do blog
+
+// conteúdo (SSG) -> vai ser o mesmo para todas as pessoas, indexação fica interessante para as ferramentas de busca (google)
+// comentários (client-side) -> não preciso dos comentários antes da página ter carregado, nem de indexação
 
 interface HomeProps {
   product: {
@@ -38,7 +47,7 @@ export default function Home({ product }: HomeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve("price_1JR1LCHnNTTEPWhkJRiCfTlW");
 
   const product = {
@@ -53,5 +62,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       product,
     },
+    // quanto tempo em segundos eu quero que essa pagina fique sem revalidar (reconstruida)
+    revalidate: 60 * 60 * 24, // 24 horas
   };
 };
