@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { getSession, useSession } from "next-auth/client";
 import Head from "next/head";
 import Link from "next/link";
@@ -55,7 +55,12 @@ export default function PostPreview({ post }: PostPreviewProps) {
   );
 }
 
-export const getStaticPaths = () => {
+// Temos duas opções para gerar as páginas estáticas:
+// Gerar as páginas estáticas durante a build
+// Gerar a página estática no primeiro acesso
+// Usar as duas abordagens ao mesmo tempo
+
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: [],
     fallback: "blocking",
@@ -86,5 +91,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post,
     },
+    redirect: 60 * 30, // 30 minutes
   };
 };
