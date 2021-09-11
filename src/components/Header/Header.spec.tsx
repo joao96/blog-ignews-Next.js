@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ActiveLink } from ".";
+import { Header } from ".";
 
 /**
  * Veja que o ActiveLink faz uso do useRouter (funcionalidade externa ao componente).
@@ -15,25 +15,24 @@ jest.mock("next/router", () => {
   };
 });
 
+/**
+ * Veja que o SignInButton faz uso do useSession (funcionalidade externa ao componente).
+ * Logo, e necessario criar esse mock.
+ */
+jest.mock("next-auth/client", () => {
+  return {
+    useSession() {
+      return [null, false];
+    },
+  };
+});
+
 // vai criar uma categorizacao dos testes
-describe("ActiveLink component", () => {
+describe("Header component", () => {
   it("renders correctly", () => {
-    render(
-      <ActiveLink href="/" activeClassName="active">
-        <a>Home</a>
-      </ActiveLink>
-    );
+    render(<Header />);
 
     expect(screen.getByText("Home")).toBeInTheDocument();
-  });
-
-  it("adds active class if the link is currently active", () => {
-    render(
-      <ActiveLink href="/" activeClassName="active">
-        <a>Home</a>
-      </ActiveLink>
-    );
-
-    expect(screen.getByText("Home")).toHaveClass("active");
+    expect(screen.getByText("Posts")).toBeInTheDocument();
   });
 });
