@@ -6,19 +6,10 @@ import { stripe } from "../services/stripe";
 
 import styles from "./home.module.scss";
 
-// client-side
-// server-side
-// static site generation
-
-// Post do blog
-
-// conteúdo (SSG) -> vai ser o mesmo para todas as pessoas, indexação fica interessante para as ferramentas de busca (google)
-// comentários (client-side) -> não preciso dos comentários antes da página ter carregado, nem de indexação
-
 interface HomeProps {
   product: {
     priceId: string;
-    amount: number;
+    amount: string;
   };
 }
 
@@ -38,7 +29,7 @@ export default function Home({ product }: HomeProps) {
             Get access to all publications <br />
             <span>for {product.amount} month</span>
           </p>
-          <SubscribeButton priceId={product.priceId} />
+          <SubscribeButton />
         </section>
 
         <img src="/images/avatar.svg" alt="Girl coding" />
