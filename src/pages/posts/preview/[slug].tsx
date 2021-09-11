@@ -55,11 +55,6 @@ export default function PostPreview({ post }: PostPreviewProps) {
   );
 }
 
-// Temos duas opções para gerar as páginas estáticas:
-// Gerar as páginas estáticas durante a build
-// Gerar a página estática no primeiro acesso
-// Usar as duas abordagens ao mesmo tempo
-
 export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: [],
