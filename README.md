@@ -1,34 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+    <img alt="to-do" src="public/images/logo.svg" />
+</h1>
 
-## Getting Started
+<h4 align="center">
+  A sign-up and subscription based blog application. Testing out authentication, subscriptions and payment APIs. 
+</h4>
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/joao96/blog-ignews-next?style=flat-square">
 
-First, run the development server:
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/joao96/blog-ignews-next?style=flat-square">
+<!--   <img alt="License" src="https://img.shields.io/github/license/joao96/the-simplest-todo?style=flat-square"> -->
+</p>
 
-```bash
-npm run dev
-# or
+<p align="center">
+  <a href="#checkered_flag-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-setup">Setup</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#sparkles-how-it-works">How It Works</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<!--   <a href="#page_facing_up-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; -->
+  <a href="#get-in-touch-monocle_face">Get in touch</a>
+</p>
+
+## :checkered_flag: Technologies
+
+- [Next JS](https://nextjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Prismic](https://prismic.io/docs)
+- [FaunaDB](https://fauna.com/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Stripe](https://stripe.com/br)
+- [Jest](https://jestjs.io/)
+- [testing-library](https://testing-library.com/)
+- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
+
+## :information_source: Setup
+
+In order to run this application, it's required that you have [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer. From your command line:
+
+**Step 1:** Clone this repo & run a `cd` into project's folder.
+
+**Step 2:** install node modules as below:
+
+```
+npm install
+```
+
+if you prefer:
+
+```
+yarn
+```
+
+**Step 3:**
+
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once the server is up, go to http://localhost:3000/ and you should see something like this:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<p align="center">
+  <img src="public/cover.png" alt="Initial page">
+</p>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<!-- ## :page_facing_up: License
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<a href="https://github.com/joao96/the-simplest-todo/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/joao96/the-simplest-todo?style=flat-square">
+</a>
 
-## Learn More
+<br />
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the MIT. -->
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## :sparkles: How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+So, the application is connected to a CMS service called [Prismic](https://prismic.io/docs). With that, the app consumes all the posts information and displays it for the users. 
 
-## Deploy on Vercel
+However, only the users that have a subscription (connecting the services from [FaunaDB](https://fauna.com/) and [Stripe](https://stripe.com/br)) are able to see the whole thing. For the users that do not have a subscription, only a preview is shown.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Also, the [NextAuth.js](https://next-auth.js.org/) API was added to implement the sign-up and sign-in feature. Likewise, [FaunaDB](https://fauna.com/) was used in this setup as well.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Get in touch! :monocle_face:
+
+[![Linkedin Badge](https://img.shields.io/badge/-João%20Victor%20Poletti-0e76a8?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jvpoletti/)](https://www.linkedin.com/in/jvpoletti/)
+[![Gmail Badge](https://img.shields.io/badge/-jvpoletti@gmail.com-ff512f?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jvpoletti@gmail.com)](mailto:jvpoletti@gmail.com)
+
+<br />
+
+Made with :green_heart: by [João Victor Poletti](https://github.com/joao96)
+
+[nodejs]: https://nodejs.org/
+[yarn]: https://yarnpkg.com/
+[vc]: https://code.visualstudio.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
